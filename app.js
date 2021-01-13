@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     //card options
     const cardArray = [
         {
@@ -55,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cardArray.sort(() => 0.5 - Math.random())
 
     const grid = document.querySelector('.grid')
-    const resultDisplay = document.querySelectorAll('#result')
+    const resultDisplay = document.querySelector('#result')
     var cardsChosen = []
     var cardsChosenId = []
     var cardsWon = []
@@ -76,12 +75,13 @@ function checkForMatch() {
     var cards = document.querySelectorAll('img')
     const optionOneId = cardsChosenId[0]
     const optionTwoId = cardsChosenId[1]
+
     if (cardsChosen[0] === cardsChosen[1]) {
         alert('You found a match')
         cards[optionOneId].setAttribute('src', 'images/white.png')
         cards[optionTwoId].setAttribute('src', 'images/white.png')
-        cards[optionOneId].removeEventListener('click', 'flipcard')
-        cards[optionTwoId].removeEventListener('click', 'flipcard')
+        cards[optionOneId].removeEventListener('click', flipcard)
+        cards[optionTwoId].removeEventListener('click', flipcard)
         cardsWon.push(cardsChosen)
     }   else {
         cards[optionOneId].setAttribute('src', 'images/blank.png')
@@ -91,7 +91,7 @@ function checkForMatch() {
     cardsChosen = []
     cardsChosenId = []
     resultDisplay.textContent = cardsWon.length
-    if (cardsWon.length === cardsArray.length/2) {
+    if (cardsWon.length === cardArray.length / 2) {
         resultDisplay.textContent = 'Congratulations! You found them all!'
     }
 }
