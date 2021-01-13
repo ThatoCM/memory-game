@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cardArray.sort(() => 0.5 - Math.random())
 
     const grid = document.querySelector('.grid')
-    const reslutDisplay = document.querySelectorAll('#result')
+    const resultDisplay = document.querySelectorAll('#result')
     var cardsChosen = []
     var cardsChosenId = []
     var cardsWon = []
