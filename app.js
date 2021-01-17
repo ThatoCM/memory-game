@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function createBoard() {
         for (let i = 0; i < cardArray.length; i++) {
             var card = document.createElement('img')
-            card.setAttribute('src', 'images/blank.png')
+            card.setAttribute('src', 'images/card-back.jpg')
             card.setAttribute('data-id', i)
             card.addEventListener('click', flipcard)
             grid.appendChild(card)
@@ -77,22 +77,20 @@ function checkForMatch() {
     const optionTwoId = cardsChosenId[1]
 
     if (cardsChosen[0] === cardsChosen[1]) {
-        alert('You found a match')
         cards[optionOneId].setAttribute('src', 'images/white.png')
         cards[optionTwoId].setAttribute('src', 'images/white.png')
         cards[optionOneId].removeEventListener('click', flipcard)
         cards[optionTwoId].removeEventListener('click', flipcard)
         cardsWon.push(cardsChosen)
     }   else {
-        cards[optionOneId].setAttribute('src', 'images/blank.png')
-        cards[optionTwoId].setAttribute('src', 'images/blank.png')
-        alert('Sorry, try again')
+        cards[optionOneId].setAttribute('src', 'images/card-back.jpg')
+        cards[optionTwoId].setAttribute('src', 'images/card-back.jpg')
     }
     cardsChosen = []
     cardsChosenId = []
     resultDisplay.textContent = cardsWon.length
     if (cardsWon.length === cardArray.length / 2) {
-        resultDisplay.textContent = 'Congratulations! You found them all!'
+        resultDisplay.textContent = ' Congratulations! You found them all!'
     }
 }
 
